@@ -1,0 +1,95 @@
+/* Responsive */
+
+@include Tablet_L {
+  .right h1 {
+    font-size: 9rem;
+    @include Flex(column);
+  }
+  footer {
+    a {
+      padding: 0 0.5rem;
+    }
+  }
+}
+
+@include Tablet {
+  .right h1 {
+    font-size: 7rem;
+    @include Flex(column);
+  }
+  @keyframes right {
+    0% {
+      background-position: -1000px;
+      left: 100%;
+      opacity: 0;
+    }
+    100% {
+      background-position: 0px;
+      left: 20%;
+      opacity: 1;
+    }
+  }
+}
+@include Mobile {
+  nav {
+    ul {
+      justify-content: space-around;
+      li {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .left h1 {
+    position: relative;
+    font-size: 2rem;
+    width: 100%;
+  }
+  .right h1 {
+    font-size: 3rem;
+    top: 50%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  footer {
+    .social {
+      @include Flex(column);
+      position: absolute;
+      bottom: 0;
+      right: 15%;
+      a {
+        padding: 1rem 0;
+      }
+    }
+    .copy {
+      position: absolute;
+      bottom: 0;
+      left: 10%;
+      padding-left: 0;
+      font-size: 1rem;
+    }
+  }
+  @keyframes right {
+    0% {
+      background-position: -1000px;
+      left: 100%;
+      opacity: 0;
+    }
+    100% {
+      background-position: 0px;
+      left: -45%;
+      opacity: 1;
+    }
+  }
+  @keyframes left {
+    0% {
+      opacity: 0;
+      top: 20%;
+    }
+    100% {
+      opacity: 1;
+      top: 20%;
+      left: 100%;
+    }
+  }
+}

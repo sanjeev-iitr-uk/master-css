@@ -1,0 +1,84 @@
+// Transition
+
+@mixin transition {
+    transition: all 0.5s ease;
+}
+
+//Hover
+@mixin hover {
+    @include transition;
+    cursor: pointer;
+}
+@mixin Flex($dir: row, $align: center) {
+    display: flex;
+    flex-direction: $dir;
+    align-items: $align;
+}
+@mixin Animation_left {
+    @keyframes left {
+        0% {
+            opacity: 0;
+            top: 60%;
+        }
+        100% {
+            opacity: 1;
+            top: 50%;
+        }
+    }
+    animation: left 2s ease forwards;
+    animation-delay: 0.4s;
+}
+@mixin Animation_right {
+    @keyframes right {
+        0% {
+            background-position: -1000px;
+            left: 10%;
+            opacity: 0;
+            
+        }
+        100% {
+            background-position: 0px;
+            left: 0%;
+            opacity: 1;
+        }
+    }
+    animation: right 2s ease forwards;
+    animation-delay: 0.4s;
+}
+//Background Mixins
+@mixin background {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-clip: text;
+    background-attachment: fixed;
+    -webkit-background-clip: text;
+}
+//Responsive 
+
+@mixin Tablet_L {
+    @media screen and (max-width: $tablet-L) {
+        @content;
+    }
+}
+@mixin Tablet {
+    @media screen and (max-width: $tablet) {
+        @content;
+    }
+}
+@mixin Mobile {
+    @media screen and (max-width: $phone) {
+        @content;
+    }
+}
+@function color($color) {
+    @if (lightness($color) > 75) {
+        @return black;
+    } @else {
+        @return white;
+    }
+}
+@mixin BG_color($color) {
+    background-color: $color;
+    color: color($prim-c);
+}
